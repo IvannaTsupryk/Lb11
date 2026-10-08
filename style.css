@@ -1,0 +1,239 @@
+/* Мобільна версія (до 730px) */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #222;
+}
+
+.page {
+  padding: 10px;
+}
+
+.header h1 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: normal;
+  color: #17324d;
+}
+
+.amp {
+  color: #e0455c;
+}
+
+/* радіокнопки не показуємо, працюють через label */
+input {
+  display: none;
+}
+
+/* фільтри */
+.slider-block {
+  display: none;
+}
+
+.filter-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filter-btn {
+  padding: 12px;
+  text-align: center;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
+/* активна кнопка */
+#filter-pyrig:checked ~ .filters .btn-pyrig,
+#filter-rulet:checked ~ .filters .btn-rulet,
+#filter-syrnyky:checked ~ .filters .btn-syrnyky,
+#filter-tistechko:checked ~ .filters .btn-tistechko,
+#filter-tort:checked ~ .filters .btn-tort {
+  background-color: #17324d;
+  color: #fff;
+}
+
+/* фільтрація карток */
+#filter-pyrig:checked ~ .cards .card:not(.pyrig),
+#filter-rulet:checked ~ .cards .card:not(.rulet),
+#filter-syrnyky:checked ~ .cards .card:not(.syrnyky),
+#filter-tistechko:checked ~ .cards .card:not(.tistechko),
+#filter-tort:checked ~ .cards .card:not(.tort) {
+  display: none;
+}
+
+/* картки */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.card {
+  background-color: #f3f4f6;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+}
+
+.card-title {
+  display: none;
+}
+
+.card-calories {
+  display: none;
+}
+
+/* футер */
+.footer {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+/* Планшет (від 730px) */
+@media (min-width: 730px) {
+  .filter-buttons {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .card {
+    border: 1px solid #ccc;
+  }
+
+  .card-top {
+    padding: 15px 15px 5px;
+  }
+
+  .card img {
+    height: 190px;
+  }
+
+  .card-title {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+  }
+}
+
+/* Десктоп (від 1200px) */
+@media (min-width: 1200px) {
+  .page {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    grid-template-areas:
+      "header header"
+      "cards filters"
+      "footer footer";
+    gap: 15px;
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .cards {
+    grid-area: cards;
+  }
+
+  .filters {
+    grid-area: filters;
+    align-self: start;
+    padding: 15px;
+    background-color: #f3f4f6;
+    border: 1px solid #ccc;
+  }
+
+  .footer {
+    grid-area: footer;
+  }
+
+  .slider-block {
+    display: block;
+    text-align: center;
+  }
+
+  .slider {
+    position: relative;
+    height: 20px;
+    margin: 20px 20px 10px;
+  }
+
+  .slider-line {
+    height: 2px;
+    margin-top: 9px;
+    background-color: #17324d;
+  }
+
+  .slider-dot {
+    position: absolute;
+    top: 3px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #17324d;
+  }
+
+  .dot-left {
+    left: 20%;
+  }
+
+  .dot-right {
+    left: 60%;
+  }
+
+  .slider-text {
+    margin-bottom: 25px;
+    font-size: 14px;
+  }
+
+  .filter-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .card-top {
+    display: flex;
+    padding: 12px;
+  }
+
+  .card img {
+    width: 50%;
+    height: 130px;
+  }
+
+  .card-title {
+    margin: 0 0 0 10px;
+  }
+
+  .card-calories {
+    display: block;
+    margin: 0;
+    padding: 15px 12px;
+    border-top: 1px solid #ccc;
+    font-size: 14px;
+  }
+}
